@@ -5,6 +5,18 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+section {
+    margin-bottom: 40px;
+}
+
+.center__block {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
 h1 {
     text-align: center;
     color: green;
@@ -14,6 +26,19 @@ header {
     width: 100%;
     height: 50px;
     background-color: rgb(43 58 66);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0px 40px;
+}
+
+.header__logo {
+    height: 40px;
+}
+
+.header__title {
+    font-size: 22px;
+    color: white;
 }
 
 .logo {
@@ -22,4 +47,8 @@ header {
     width: 200px;
     height: 200px;
     margin: 0 auto;
+}
+
+.code {
+    color: #8f0317;
 }

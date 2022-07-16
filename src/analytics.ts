@@ -1,8 +1,10 @@
-function createAnalytics() {
+function createAnalytics(): object {
     let counter = 0
-    let isDestroyed = false
+    let isDestroyed: boolean = false
 
-    const listener = () => counter++
+    const unused = 42
+
+    const listener = (): number => counter++
 
     window.document.addEventListener('click', listener)
 
@@ -21,4 +23,9 @@ function createAnalytics() {
     }
 }
 
-window.analytics = createAnalytics()
+window['analytics'] = createAnalytics()
+
+// @ts-ignore
+import('lodash').then(_ => {
+    console.log('lodash', _.random(0, 42, true))
+});
