@@ -8,3 +8,11 @@ header {
     height: 50px;
     background-color: rgb(43 58 66);
 }
+
+.logo {
+    background-image: url("../assets/png-test.png");
+    background-size: cover;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+}

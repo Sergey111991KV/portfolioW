@@ -5,12 +5,14 @@
   "main": "index.js",
   "scripts": {
     "dev": "./node_modules/.bin/webpack --mode development",
-    "build": "./node_modules/.bin/webpack --mode production"
+    "build": "./node_modules/.bin/webpack --mode production",
+    "watch": "./node_modules/.bin/webpack --mode development --watch"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "css-loader": "^6.7.1",
+    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "style-loader": "^3.3.1",
     "webpack": "^5.73.0",
