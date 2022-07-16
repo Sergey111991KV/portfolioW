@@ -1,3 +1,10 @@
+@import "~normalize.css";
+@import "roboto.css";
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
 h1 {
     text-align: center;
     color: green;
@@ -10,7 +17,7 @@ header {
 }
 
 .logo {
-    background-image: url("../assets/png-test.png");
+    background-image: url("../assets/png-test2.png");
     background-size: cover;
     width: 200px;
     height: 200px;
