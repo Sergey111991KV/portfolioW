@@ -10,6 +10,7 @@ import csv from './assets/addresses.csv'
 import './babel'
 import React from 'react'
 import {render} from 'react-dom'
+import './styles/swiper-bundle.min'
 
 const post = new Post('FIRST POST', WebpackTestPng)
 
@@ -26,7 +27,7 @@ const App = () => (
         </header>
         <section>
             <div className="center__block">
-                <h1>Webpack</h1>
+                <h1>Webpack ()</h1>
             </div>
         </section>
 
