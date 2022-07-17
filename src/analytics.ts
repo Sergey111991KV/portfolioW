@@ -26,6 +26,6 @@ function createAnalytics(): object {
 window['analytics'] = createAnalytics()
 
 // @ts-ignore
-import('lodash').then(_ => {
-    console.log('lodash', _.random(0, 42, true))
+import('lodash').then((e) => {
+    console.log('lodash', e.random(0, 42, true))
 });

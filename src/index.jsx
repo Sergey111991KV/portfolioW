@@ -22,7 +22,7 @@ const App = () => (
     <div>
         <header>
             <img className="header__logo" src={require('/assets/logo.svg')} alt="none"/>
-            <span className="header__title">Webpack knowledge</span>
+            <span className="header__title">Webpack</span>
         </header>
         <section>
             <div className="center__block">
@@ -34,6 +34,7 @@ const App = () => (
             <div className="center__block">
                 <h3>Loading images</h3>
                 <div className="logo"></div>
+                <div className="logo2"></div>
             </div>
         </section>
 
@@ -63,7 +64,10 @@ const App = () => (
             </div>
         </section>
         <section>
-
+            <div>
+                <h2>Analyzer</h2>
+                <spa> "stats-analyzer": "webpack --json {'>'} stats.json && webpack-bundle-analyzer stats.json"</spa>
+            </div>
         </section>
     </div>
 )

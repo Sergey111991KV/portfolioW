@@ -5,6 +5,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const TerserPlugin = require("terser-webpack-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const {BundleAnalyzerPlugin} = require("webpack-bundle-analyzer")
 
 const isDev = process.env.NODE_ENV === 'development';
 console.log('isDev:', isDev)
@@ -56,36 +57,7 @@ const tsLoaders = () => {
 }
 
 const plugins = () => {
-
-}
-
-module.exports = {
-    context: path.resolve(__dirname, 'src'),
-    mode: 'development',
-    devtool: isDev ? 'source-map' : '',
-    entry: {
-        main: './index.jsx',
-        analytics: './analytics.ts',
-    },
-    output: {
-        filename: filename('js'),
-        // filename: '[name].[contenthash].js',
-        path: path.resolve(__dirname, 'dist'),
-        clean: true
-    },
-    resolve: {
-        extensions: ['.js', '.json', '.png', 'ts', 'tsx', 'jsx'],
-        alias: {
-            '@models': path.resolve(__dirname, 'src/models'),
-            '@': path.resolve(__dirname, 'src')
-        }
-    },
-    optimization: optimization(),
-    devServer: {
-        port: 4200,
-        hot: isDev
-    },
-    plugins: [
+    const plug = [
         new HtmlWebpackPlugin({
             title: "Webpack App2",
             template: "./index.html",
@@ -109,7 +81,40 @@ module.exports = {
             filename: '[name].[contenthash].css'
         }),
         new TerserPlugin()
-    ],
+    ]
+
+    if (isProd) plug.push(new BundleAnalyzerPlugin())
+
+    return plug
+}
+
+module.exports = {
+    context: path.resolve(__dirname, 'src'),
+    mode: 'development',
+    devtool: isDev ? 'source-map' : false,
+    entry: {
+        main: './index.jsx',
+        analytics: './analytics.ts',
+    },
+    output: {
+        filename: filename('js'),
+        // filename: '[name].[contenthash].js',
+        path: path.resolve(__dirname, 'dist'),
+        clean: true
+    },
+    resolve: {
+        extensions: ['.js', '.json', '.png', 'ts', 'tsx', 'jsx'],
+        alias: {
+            '@models': path.resolve(__dirname, 'src/models'),
+            '@': path.resolve(__dirname, 'src')
+        }
+    },
+    optimization: optimization(),
+    devServer: {
+        port: 4200,
+        hot: isDev
+    },
+    plugins: plugins(),
     module: {
         rules: [
             {
